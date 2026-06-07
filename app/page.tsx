@@ -191,17 +191,17 @@ export default function Home() {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
 
             {/* Left side copy */}
-            <div data-reveal="apple">
+            <div className="text-center lg:text-left" data-reveal="apple">
               <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-[#111] sm:text-5xl">
                 Real results you can see
               </h2>
-              <p className="mt-6 text-lg leading-8 text-black/65 sm:text-xl sm:leading-9">
+              <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-black/65 sm:text-xl sm:leading-9 lg:mx-0">
                 A good detail should be obvious. From cleaner paint to fresher interiors, every service is built to make your car feel better the moment you get back in.
               </p>
-              <p className="mt-4 text-lg leading-8 text-black/65 sm:text-xl sm:leading-9">
+              <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-black/65 sm:text-xl sm:leading-9 lg:mx-0">
                 Not sure what your car needs? Choose a package or send your vehicle details and we will point you in the right direction.
               </p>
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
                 <MagneticButton
                   href="/book"
                   onClick={(e) => {
@@ -214,7 +214,7 @@ export default function Home() {
                 </MagneticButton>
                 <a
                   href="tel:+16047265855"
-                  className="font-display flex min-h-12 items-center gap-2 rounded-none border border-[#111]/15 bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#111] transition hover:border-[#111]/40 hover:bg-[#f7f6f2]"
+                  className="font-display flex min-h-12 w-full items-center justify-center gap-2 rounded-none border border-[#111]/15 bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#111] transition hover:border-[#111]/40 hover:bg-[#f7f6f2] min-[430px]:w-auto"
                 >
                   <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
                     <path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h2.764a.5.5 0 0 1 .49.395l.833 4.167a.5.5 0 0 1-.27.534L5.5 8a11.03 11.03 0 0 0 6.5 6.5l.904-1.817a.5.5 0 0 1 .534-.27l4.167.833a.5.5 0 0 1 .395.49V16.5A1.5 1.5 0 0 1 16.5 18C8.492 18 2 11.508 2 3.5Z" />
@@ -255,15 +255,15 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="order-1 lg:order-2" data-reveal="apple">
+            <div className="order-1 text-center lg:order-2 lg:text-left" data-reveal="apple">
               <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-[#111] sm:text-5xl">
                 Seal your detail with<br />
                 <span className="underline decoration-[#9aa1ad] decoration-[3px] underline-offset-4">ceramic coating</span>
               </h2>
-              <p className="mt-6 text-lg leading-8 text-black/65 sm:text-xl sm:leading-9">
+              <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-black/65 sm:text-xl sm:leading-9 lg:mx-0">
                 Ceramic coating adds a protective layer over your paint to help maintain gloss, make cleaning easier, and reduce the impact of everyday dirt, water, and road grime.
               </p>
-              <ul className="mt-8 space-y-5">
+              <ul className="mx-auto mt-8 max-w-xl space-y-5 text-left lg:mx-0">
                 {[
                   "Helps protect paint from UV, dirt, water, and road grime",
                   "Keeps the finish glossier for longer",
@@ -279,7 +279,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
                 <MagneticButton
                   href="/book"
                   onClick={(e) => {
@@ -292,7 +292,7 @@ export default function Home() {
                 </MagneticButton>
                 <a
                   href={`mailto:${contactEmail}?subject=Ceramic%20Coating%20Quote`}
-                  className="font-display flex min-h-12 items-center gap-2 rounded-none border border-[#111]/15 bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#111] transition hover:border-[#111]/40 hover:bg-[#f7f6f2]"
+                  className="font-display flex min-h-12 w-full items-center justify-center gap-2 rounded-none border border-[#111]/15 bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#111] transition hover:border-[#111]/40 hover:bg-[#f7f6f2] min-[430px]:w-auto"
                 >
                   <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4 shrink-0" aria-hidden="true">
                     <rect x="2.5" y="4" width="15" height="12" rx="2" />
@@ -344,13 +344,13 @@ export default function Home() {
         <div
           className="yellow-motion-panel relative isolate mx-auto flex max-w-6xl flex-col items-center overflow-hidden rounded-2xl border border-white/15 px-4 py-10 text-center shadow-[0_42px_110px_-34px_rgba(0,0,0,0.62)] sm:rounded-3xl sm:px-14 sm:py-16"
         >
-          <h2 className="booking-copy-shadow mx-auto max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]" data-reveal="apple" data-reveal-delay="120">
+          <h2 className="booking-copy-shadow mx-auto max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
             Ready to get your car looking right again?
           </h2>
-          <p className="booking-copy-shadow mx-auto mt-4 max-w-2xl text-base leading-7 text-white/90 sm:mt-5 sm:text-xl sm:leading-9" data-reveal="apple" data-reveal-delay="220">
+          <p className="booking-copy-shadow mx-auto mt-4 max-w-2xl text-base leading-7 text-white/90 sm:mt-5 sm:text-xl sm:leading-9">
             Book in under 2 minutes. Choose your package, send your vehicle details, or reach out with questions before booking. We will make the next step simple.
           </p>
-          <div className="mx-auto mt-7 grid w-full max-w-3xl gap-3 text-left sm:mt-9 sm:grid-cols-2" data-reveal="apple" data-reveal-delay="360">
+          <div className="mx-auto mt-7 grid w-full max-w-3xl gap-3 text-left sm:mt-9 sm:grid-cols-2">
             <a
               href={`mailto:${contactEmail}`}
               className="group flex min-w-0 items-center gap-3 rounded-xl border border-white/15 bg-white/[0.08] px-4 py-4 backdrop-blur-md transition hover:border-[#c8ccd4]/50 hover:bg-white/[0.12] sm:gap-3.5 sm:rounded-2xl sm:px-5"
@@ -381,7 +381,7 @@ export default function Home() {
               </span>
             </a>
           </div>
-          <div data-reveal="apple" data-reveal-delay="460">
+          <div>
             <MagneticButton
               href="/book"
               onClick={(e) => {
@@ -399,16 +399,16 @@ export default function Home() {
 
       <footer className="bg-[#101312] px-4 py-12 text-white sm:px-8 sm:py-14">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 md:grid-cols-[1.25fr_0.75fr_0.85fr_0.9fr]">
+          <div className="grid gap-10 text-center md:grid-cols-[1.25fr_0.75fr_0.85fr_0.9fr] md:text-left">
             <div>
               <a href="#top" className="font-display inline-flex flex-col leading-none text-[#c8ccd4]">
                 <span className="text-2xl font-extrabold uppercase tracking-[0.14em]">Elegant Auto</span>
                 <span className="mt-1 text-sm font-semibold uppercase tracking-[0.48em]">Detailing</span>
               </a>
-              <p className="mt-5 max-w-sm text-sm leading-6 text-white/62">
+              <p className="mx-auto mt-5 max-w-sm text-sm leading-6 text-white/62 md:mx-0">
                 Premium mobile detailing in Surrey, BC. Clean interiors, glossy exteriors, and a booking process that makes the next step simple.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row md:justify-start">
                 <a
                   href="/book"
                   onClick={(e) => {
@@ -477,7 +477,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/44 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center text-xs text-white/44 sm:flex-row sm:justify-between sm:text-left">
             <p>&copy; 2026 Elegant Auto Detailing. All rights reserved.</p>
             <p>Cleaner car. Clearer booking. Better drive.</p>
           </div>

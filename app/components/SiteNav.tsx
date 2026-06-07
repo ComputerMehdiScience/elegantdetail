@@ -1,8 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+
+const mainNavLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact", href: "/#book" },
+];
 
 const serviceDropdown = [
   { label: "Auto Detailing", href: "/services" },
@@ -29,6 +38,7 @@ function ChevronDown() {
 export function SiteNav({ overHero = false }: { overHero?: boolean }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!overHero) return;
@@ -40,32 +50,36 @@ export function SiteNav({ overHero = false }: { overHero?: boolean }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [overHero]);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   function openModal() {
+    setMenuOpen(false);
     window.dispatchEvent(new CustomEvent("open-booking-modal"));
   }
 
   const isServicesActive = pathname.startsWith("/services");
-  const transparent = overHero && !scrolled;
+  const transparent = overHero && !scrolled && !menuOpen;
+  const navShellClass = transparent
+    ? "border-transparent bg-transparent shadow-none backdrop-blur-none"
+    : "border-white/20 bg-[#111514]/94 shadow-[0_8px_28px_rgba(0,0,0,0.22)] backdrop-blur-2xl backdrop-saturate-150";
 
   return (
     <div
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
-        transparent
-          ? "border-transparent bg-transparent shadow-none backdrop-blur-none"
-          : "border-white/35 bg-[#111514]/90 shadow-[0_8px_28px_rgba(0,0,0,0.22)] backdrop-blur-2xl backdrop-saturate-150"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${navShellClass}`}
     >
-      <nav className="mx-auto flex min-h-[78px] max-w-7xl items-center justify-between gap-3 px-4 sm:min-h-24 sm:gap-6 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex min-h-[76px] max-w-7xl items-center justify-between gap-3 px-4 sm:min-h-24 sm:gap-6 sm:px-6 lg:px-8">
 
         {/* Logo */}
-        <a href="/" className="flex shrink-0 items-center gap-3">
+        <a href="/" className="flex shrink-0 items-center gap-3" onClick={() => setMenuOpen(false)}>
           <span className="flex items-center justify-center">
             <Image
               src="/Microyescars/logo.png"
               alt="Elegant Auto Detailing"
               width={190}
               height={95}
-              className="h-12 w-auto object-contain drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)] sm:h-16"
+              className="h-11 w-auto object-contain drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)] sm:h-16"
               priority
             />
           </span>
@@ -74,9 +88,11 @@ export function SiteNav({ overHero = false }: { overHero?: boolean }) {
         {/* Centered nav links */}
         <div className="hidden items-center gap-1 text-[1.05rem] font-bold text-white md:flex">
 
-          <a href="/" className={`border-b-2 px-4 py-2 tracking-wide transition hover:text-[#c8ccd4] ${pathname === "/" ? "border-[#c8ccd4] text-[#c8ccd4]" : "border-transparent"}`}>
-            Home
-          </a>
+          {mainNavLinks.slice(0, 1).map((link) => (
+            <a key={link.label} href={link.href} className={`border-b-2 px-4 py-2 tracking-wide transition hover:text-[#c8ccd4] ${pathname === link.href ? "border-[#c8ccd4] text-[#c8ccd4]" : "border-transparent"}`}>
+              {link.label}
+            </a>
+          ))}
 
           {/* Services with dropdown */}
           <div className="group relative">
@@ -110,29 +126,67 @@ export function SiteNav({ overHero = false }: { overHero?: boolean }) {
             </div>
           </div>
 
-          <a href="/about" className={`border-b-2 px-4 py-2 tracking-wide transition hover:text-[#c8ccd4] ${pathname === "/about" ? "border-[#c8ccd4] text-[#c8ccd4]" : "border-transparent"}`}>
-            About
-          </a>
-
-          <a href="/gallery" className={`border-b-2 px-4 py-2 tracking-wide transition hover:text-[#c8ccd4] ${pathname === "/gallery" ? "border-[#c8ccd4] text-[#c8ccd4]" : "border-transparent"}`}>
-            Gallery
-          </a>
-
-          <a href="/#book" className="border-b-2 border-transparent px-4 py-2 tracking-wide transition hover:text-[#c8ccd4]">
-            Contact
-          </a>
+          {mainNavLinks.slice(2).map((link) => (
+            <a key={link.label} href={link.href} className={`border-b-2 px-4 py-2 tracking-wide transition hover:text-[#c8ccd4] ${pathname === link.href ? "border-[#c8ccd4] text-[#c8ccd4]" : "border-transparent"}`}>
+              {link.label}
+            </a>
+          ))}
 
         </div>
 
-        {/* Single solid Book button */}
-        <button
-          onClick={openModal}
-          className="btn-chrome shrink-0 rounded-full px-5 py-3 text-[0.78rem] font-bold uppercase tracking-[0.14em] sm:px-7 sm:text-[0.95rem] sm:tracking-[0.1em]"
-        >
-          Book Online
-        </button>
+        <div className="flex shrink-0 items-center gap-2">
+          <button
+            onClick={openModal}
+            className="btn-chrome shrink-0 rounded-full px-4 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.12em] sm:px-7 sm:py-3 sm:text-[0.95rem] sm:tracking-[0.1em]"
+          >
+            Book
+            <span className="hidden sm:inline"> Online</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/[0.08] text-white shadow-[0_10px_24px_-18px_rgba(0,0,0,0.65)] backdrop-blur-xl transition hover:border-white/38 hover:bg-white/[0.14] md:hidden"
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          >
+            {menuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+          </button>
+        </div>
 
       </nav>
+      <div
+        className={`absolute inset-x-0 top-full overflow-hidden border-t border-white/10 bg-[#111514] shadow-[0_28px_60px_rgba(0,0,0,0.42)] backdrop-blur-2xl transition-[max-height,opacity] duration-300 md:hidden ${
+          menuOpen ? "max-h-[calc(100svh-76px)] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="mx-auto grid min-h-[calc(100svh-76px)] max-w-7xl content-start gap-2 px-4 pb-6 pt-3">
+          {mainNavLinks.map((link) => {
+            const active = link.href !== "/#book" && pathname === link.href;
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`flex min-h-12 items-center justify-between rounded-xl border px-4 text-sm font-bold uppercase tracking-[0.14em] transition ${
+                  active
+                    ? "border-[#c8ccd4]/60 bg-[#c8ccd4]/12 text-[#c8ccd4]"
+                    : "border-white/10 bg-white/[0.04] text-white/82 hover:border-white/24 hover:bg-white/[0.08]"
+                }`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+                <span className="text-white/28">/</span>
+              </a>
+            );
+          })}
+          <button
+            type="button"
+            onClick={openModal}
+            className="btn-chrome mt-1 min-h-12 rounded-xl px-4 text-sm font-bold uppercase tracking-[0.14em]"
+          >
+            Book Your Detail
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

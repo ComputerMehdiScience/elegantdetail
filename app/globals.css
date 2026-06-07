@@ -522,6 +522,16 @@ html {
   }
 }
 
+@media (max-width: 639px) {
+  .reveal-ready [data-reveal],
+  .reveal-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
 
 .dark {
   --background: oklch(0.145 0 0);
