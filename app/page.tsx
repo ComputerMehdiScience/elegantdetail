@@ -93,47 +93,47 @@ export default function Home() {
       <ScrollReveal />
       <SiteNav overHero />
 
-      <section id="top" className="relative isolate flex min-h-screen flex-col justify-center overflow-hidden px-4 pt-28 pb-16 sm:px-8 sm:pt-32">
+      <section id="top" className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden px-4 pt-24 pb-12 sm:min-h-screen sm:px-8 sm:pt-32 sm:pb-16">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/Microyescars/herophoto.png"
           alt=""
           aria-hidden="true"
-          className="hero-bg-motion absolute inset-0 -z-20 h-full w-full object-cover object-[60%_center]"
+          className="hero-bg-motion absolute inset-0 -z-20 h-full w-full object-cover object-[64%_center] sm:object-[60%_center]"
         />
         {/* Light, even scrim for text readability */}
         <div className="absolute inset-0 -z-10 bg-black/35" />
 
         <div className="mx-auto w-full max-w-[96rem]">
-          <div className="max-w-4xl">
+          <div className="mx-auto max-w-3xl text-center sm:mx-0 sm:max-w-4xl sm:text-left">
             <h1
               className="font-extrabold leading-[1.04] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]"
-              style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)" }}
+              style={{ fontSize: "clamp(2.55rem, 12vw, 5.5rem)" }}
               data-reveal="hero"
             >
               Surrey Mobile Car Detailing
             </h1>
             <p
-              className="mt-6 max-w-xl text-lg font-bold leading-7 text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)] sm:text-xl"
+              className="mx-auto mt-5 max-w-xl text-base font-bold leading-7 text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)] sm:mx-0 sm:mt-6 sm:text-xl"
               data-reveal="fade-up"
               data-reveal-delay="140"
             >
               Professional Mobile Auto Detailing, serving Surrey, Vancouver, Burnaby, and more!
             </p>
             <div
-              className="mt-7 flex flex-col gap-3 sm:flex-row sm:gap-4"
+              className="mx-auto mt-7 flex w-full max-w-sm flex-col gap-3 sm:mx-0 sm:max-w-none sm:flex-row sm:gap-4"
               data-reveal="zoom-in"
               data-reveal-delay="260"
             >
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent("open-booking-modal"))}
-                className="btn-chrome font-display flex items-center justify-center rounded-md px-6 py-3 text-sm font-bold uppercase tracking-[0.1em]"
+                className="btn-chrome font-display flex w-full items-center justify-center rounded-md px-6 py-3 text-sm font-bold uppercase tracking-[0.1em] sm:w-auto"
               >
                 Book Your Detail
               </button>
               <a
                 href="tel:+16047265855"
-                className="font-display flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.1em] text-[#111] transition hover:bg-white/90"
+                className="font-display flex w-full items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.1em] text-[#111] transition hover:bg-white/90 sm:w-auto"
               >
                 <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
                   <path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h2.764a.5.5 0 0 1 .49.395l.833 4.167a.5.5 0 0 1-.27.534L5.5 8a11.03 11.03 0 0 0 6.5 6.5l.904-1.817a.5.5 0 0 1 .534-.27l4.167.833a.5.5 0 0 1 .395.49V16.5A1.5 1.5 0 0 1 16.5 18C8.492 18 2 11.508 2 3.5Z" />
@@ -143,7 +143,7 @@ export default function Home() {
             </div>
 
             {/* Google reviews badge */}
-            <div className="mt-6 flex items-center gap-2" data-reveal="fade-up" data-reveal-delay="360">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:justify-start" data-reveal="fade-up" data-reveal-delay="360">
               <span className="font-display flex items-center text-lg font-bold [text-shadow:0_1px_8px_rgba(0,0,0,0.55)]" aria-label="Google">
                 <span style={{ color: "#5B9BFF" }}>G</span>
                 <span style={{ color: "#FF6B5E" }}>o</span>
@@ -168,15 +168,15 @@ export default function Home() {
 
       <section
         id="services"
-        className="bg-white px-4 py-20 text-[#121212] sm:px-8 sm:py-28"
+        className="bg-white px-4 py-16 text-[#121212] sm:px-8 sm:py-28"
         data-reveal="page-fade"
       >
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <h2 className="whitespace-nowrap text-4xl font-extrabold leading-[1.05] tracking-tight text-[#111] sm:text-5xl" data-reveal="apple">
+            <h2 className="mx-auto max-w-2xl text-3xl font-extrabold leading-[1.08] tracking-tight text-[#111] sm:text-5xl" data-reveal="apple">
               Select the right detail for your car
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-black/60 sm:text-xl" data-reveal="apple" data-reveal-delay="120">
+            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-black/60 sm:mt-5 sm:text-xl sm:leading-8" data-reveal="apple" data-reveal-delay="120">
               Every package is priced by vehicle size, so you always know where to start. No calls, no guessing.
             </p>
           </div>
@@ -186,13 +186,13 @@ export default function Home() {
       </section>
 
       {/* Before / After */}
-      <section id="results" className="border-t border-black/[0.06] bg-[#faf9f6] px-4 py-20 sm:px-8 sm:py-28">
+      <section id="results" className="border-t border-black/[0.06] bg-[#faf9f6] px-4 py-16 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
 
             {/* Left side copy */}
             <div data-reveal="apple">
-              <h2 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-[#111] sm:text-5xl">
+              <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-[#111] sm:text-5xl">
                 Real results you can see
               </h2>
               <p className="mt-6 text-lg leading-8 text-black/65 sm:text-xl sm:leading-9">
@@ -240,7 +240,7 @@ export default function Home() {
       </section>
 
       {/* Ceramic coating upsell */}
-      <section className="bg-white px-4 py-20 sm:px-8 sm:py-28">
+      <section className="bg-white px-4 py-16 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
             <div className="order-2 lg:order-1" data-reveal="apple" data-reveal-delay="120">
@@ -256,7 +256,7 @@ export default function Home() {
               </div>
             </div>
             <div className="order-1 lg:order-2" data-reveal="apple">
-              <h2 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-[#111] sm:text-5xl">
+              <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-[#111] sm:text-5xl">
                 Seal your detail with<br />
                 <span className="underline decoration-[#9aa1ad] decoration-[3px] underline-offset-4">ceramic coating</span>
               </h2>
@@ -306,9 +306,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="reviews" className="overflow-hidden border-t border-black/[0.06] bg-[#faf9f6] py-20 sm:py-28">
+      <section id="reviews" className="overflow-hidden border-t border-black/[0.06] bg-[#faf9f6] py-16 sm:py-28">
         <div className="mx-auto max-w-2xl px-4 text-center sm:px-8" data-reveal="apple">
-          <h2 className="mx-auto max-w-2xl text-4xl font-extrabold leading-[1.06] tracking-tight text-[#111] sm:text-5xl lg:text-[3.5rem]">
+          <h2 className="mx-auto max-w-2xl text-3xl font-extrabold leading-[1.08] tracking-tight text-[#111] sm:text-5xl lg:text-[3.5rem]">
             Detailing people trust and talk about
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-black/60 sm:text-xl">
@@ -322,7 +322,7 @@ export default function Home() {
 
       <section id="gallery" className="overflow-hidden border-t border-black/[0.06] bg-white pt-16 pb-12 sm:pt-20 sm:pb-14">
         <div className="px-4 text-center sm:px-8" data-reveal="apple">
-          <h2 className="font-display text-4xl font-extrabold leading-[1.04] tracking-tight text-[#111] sm:text-5xl lg:text-[3.5rem]">
+          <h2 className="font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-[#111] sm:text-5xl lg:text-[3.5rem]">
             We called it Elegant for a reason
           </h2>
         </div>
@@ -340,20 +340,20 @@ export default function Home() {
         <FAQAccordionBlock />
       </section>
 
-      <section id="book" className="bg-white px-4 py-20 sm:px-8 sm:py-28">
+      <section id="book" className="bg-white px-3 py-16 sm:px-8 sm:py-28">
         <div
-          className="yellow-motion-panel relative isolate mx-auto flex max-w-6xl flex-col items-center overflow-hidden rounded-3xl border border-white/15 px-6 py-14 text-center shadow-[0_42px_110px_-34px_rgba(0,0,0,0.62)] sm:px-14 sm:py-16"
+          className="yellow-motion-panel relative isolate mx-auto flex max-w-6xl flex-col items-center overflow-hidden rounded-2xl border border-white/15 px-4 py-10 text-center shadow-[0_42px_110px_-34px_rgba(0,0,0,0.62)] sm:rounded-3xl sm:px-14 sm:py-16"
         >
-          <h2 className="booking-copy-shadow mx-auto max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]" data-reveal="apple" data-reveal-delay="120">
+          <h2 className="booking-copy-shadow mx-auto max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]" data-reveal="apple" data-reveal-delay="120">
             Ready to get your car looking right again?
           </h2>
-          <p className="booking-copy-shadow mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/90 sm:text-xl sm:leading-9" data-reveal="apple" data-reveal-delay="220">
+          <p className="booking-copy-shadow mx-auto mt-4 max-w-2xl text-base leading-7 text-white/90 sm:mt-5 sm:text-xl sm:leading-9" data-reveal="apple" data-reveal-delay="220">
             Book in under 2 minutes. Choose your package, send your vehicle details, or reach out with questions before booking. We will make the next step simple.
           </p>
-          <div className="mx-auto mt-9 grid w-full max-w-3xl gap-3 text-left sm:grid-cols-2" data-reveal="apple" data-reveal-delay="360">
+          <div className="mx-auto mt-7 grid w-full max-w-3xl gap-3 text-left sm:mt-9 sm:grid-cols-2" data-reveal="apple" data-reveal-delay="360">
             <a
               href={`mailto:${contactEmail}`}
-              className="group flex min-w-0 items-center gap-3.5 rounded-2xl border border-white/15 bg-white/[0.08] px-5 py-4 backdrop-blur-md transition hover:border-[#c8ccd4]/50 hover:bg-white/[0.12]"
+              className="group flex min-w-0 items-center gap-3 rounded-xl border border-white/15 bg-white/[0.08] px-4 py-4 backdrop-blur-md transition hover:border-[#c8ccd4]/50 hover:bg-white/[0.12] sm:gap-3.5 sm:rounded-2xl sm:px-5"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#c8ccd4]/15 text-[#c8ccd4]">
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5" aria-hidden="true">
@@ -368,7 +368,7 @@ export default function Home() {
             </a>
             <a
               href="tel:+16047265855"
-              className="group flex min-w-0 items-center gap-3.5 rounded-2xl border border-white/15 bg-white/[0.08] px-5 py-4 backdrop-blur-md transition hover:border-[#c8ccd4]/50 hover:bg-white/[0.12]"
+              className="group flex min-w-0 items-center gap-3 rounded-xl border border-white/15 bg-white/[0.08] px-4 py-4 backdrop-blur-md transition hover:border-[#c8ccd4]/50 hover:bg-white/[0.12] sm:gap-3.5 sm:rounded-2xl sm:px-5"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#c8ccd4]/15 text-[#c8ccd4]">
                 <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5" aria-hidden="true">
@@ -389,7 +389,7 @@ export default function Home() {
                 window.dispatchEvent(new CustomEvent("open-booking-modal"));
               }}
               size="cta"
-              className="mt-8"
+              className="mt-7 w-full max-w-xs sm:mt-8"
             >
               Book Your Detail
             </MagneticButton>

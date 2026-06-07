@@ -55,7 +55,7 @@ export function SiteNav({ overHero = false }: { overHero?: boolean }) {
           : "border-white/35 bg-[#111514]/90 shadow-[0_8px_28px_rgba(0,0,0,0.22)] backdrop-blur-2xl backdrop-saturate-150"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8" style={{ minHeight: 96 }}>
+      <nav className="mx-auto flex min-h-[78px] max-w-7xl items-center justify-between gap-3 px-4 sm:min-h-24 sm:gap-6 sm:px-6 lg:px-8">
 
         {/* Logo */}
         <a href="/" className="flex shrink-0 items-center gap-3">
@@ -65,7 +65,7 @@ export function SiteNav({ overHero = false }: { overHero?: boolean }) {
               alt="Elegant Auto Detailing"
               width={190}
               height={95}
-              className="h-16 w-auto object-contain drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]"
+              className="h-12 w-auto object-contain drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)] sm:h-16"
               priority
             />
           </span>
@@ -127,7 +127,7 @@ export function SiteNav({ overHero = false }: { overHero?: boolean }) {
         {/* Single solid Book button */}
         <button
           onClick={openModal}
-          className="btn-chrome shrink-0 rounded-full px-7 py-3 text-[0.95rem] font-bold uppercase tracking-[0.1em]"
+          className="btn-chrome shrink-0 rounded-full px-5 py-3 text-[0.78rem] font-bold uppercase tracking-[0.14em] sm:px-7 sm:text-[0.95rem] sm:tracking-[0.1em]"
         >
           Book Online
         </button>
